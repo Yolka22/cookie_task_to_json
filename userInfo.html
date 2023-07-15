@@ -9,7 +9,41 @@
     <p id="hello">Hello</p>
     <button id="exit">Exit</button>
 
-    
+    <form>
+        <div>
+            <label for="FirstName">First name</label>
+            <input type="text" name="FirstName" id="FirstName" required oninput="restrictInput(this,/^[a-zA-Z]{1,20}$/)">
+        </div>
+        <div>
+            <label for="LastName">Last name</label>
+            <input type="text" name="LastName" id="LastName" required oninput="restrictInput(this,/^[a-zA-Z]{1,20}$/)">
+        </div>
+        <div>
+            <label for="Year">Year</label>
+            <input type="text" name="Year" id="Year" required oninput="validateYear(this,'year_error')">
+            <span id="year_error" hidden>year shoud be from 1900 to current</span>
+        </div>
+        <div>
+            <label for="Phone">Phone</label>
+            <input type="text" name="Phone" id="Phone" oninput="validatePhone(this,'phone_error')">
+            <span id="phone_error" hidden>phone error</span>
+        </div>
+        <div>
+            <label for="Skype">Skype</label>
+            <input type="text" name="Skype" id="Skype">
+        </div>
+        <div>
+            <label for="Gender">Gender</label>
+            <select name="Gender" id="Gender" required>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+        </div>
+
+        <button id="save">
+            Save
+        </button>
+    </form>
     <script src="userInfo.js"></script>
 </body>
 </html>

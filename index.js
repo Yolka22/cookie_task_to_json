@@ -51,9 +51,21 @@ SubmitReg.addEventListener('click',(event)=>{
         PasswordError.hidden==true&&
         RepeatPasswordError.hidden==true
         ){
-            document.cookie=`email=${document.getElementById("email").value};path=/userInfo; max-age=3600; `;
+            document.cookie=`email=${document.getElementById("email").value}; max-age=3600; `;
             window.location.replace("userInfo.html");
     }
 })
 
+function getCookieValue(cookieArray, cookieName) {
+    for (const cookie of cookieArray) {
+      const [name, value] = cookie.split("=");
+      if (name === cookieName) {
+        return value;
+      }
+    }
+    return null;
+  }
 
+if(getCookieValue(document.cookie.split("; "))!=null){
+    window.location.replace("userInfo.html");
+}
