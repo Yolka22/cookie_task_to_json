@@ -1,0 +1,15 @@
+form{
+    width: 400px;
+    text-align: center;
+}
+
+form h3{
+    text-align: center;
+}
+form p{
+    text-align: left;
+}
+form input{
+    width: 100%;
+}
+
