@@ -11,19 +11,22 @@
         <form>
             <h3>Registration</h3>
 
-            <div>
-                <p>Email <span hidden id="email_error">Eamil Error</span></p>
+            <div class="container">
+                <label for="email">Email <span hidden id="email_error">Email Error</span></label>
                 <input type="email" name="email" id="email" required onblur="checkEmail()">
             </div>
-            <div>
-                <p>Password <span hidden id="password_error">password Error</span></p>
+            <div class="container">
+                <label for="password">Password <span hidden id="password_error">password Error</span></label>
                 <input type="password" name="password" id="password" required onblur="checkPassword()">
             </div>
-            <div>
-                <p>Repeat password <span hidden id="repet_password_error">Password Error</span></p>
+            <div class="container">
+                <label for="repeat_password">Repeat password <span hidden id="repet_password_error">Password Error</span></label>
                 <input type="password" name="repeat_password" id="repeat_password" required onblur="checkRepeat()">
             </div>
-            <input type="submit" id="submit_reg">
+            <div class="container">
+                <input class="sub" type="submit" id="submit_reg">
+            </div>
+            
         </form>
     </main>
     <script src="index.js"></script>
