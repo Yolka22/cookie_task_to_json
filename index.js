@@ -51,7 +51,7 @@ SubmitReg.addEventListener('click',(event)=>{
         PasswordError.hidden==true&&
         RepeatPasswordError.hidden==true
         ){
-            document.cookie=`email=${document.getElementById("email").value}; max-age=3600; path=/userInfo`;
+            document.cookie=`email=${document.getElementById("email").value};path=/userInfo; max-age=3600; `;
             window.location.replace("userInfo.html");
     }
 })
