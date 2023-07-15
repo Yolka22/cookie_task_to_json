@@ -12,18 +12,18 @@
             <h3>Registration</h3>
 
             <div>
-                <p>Email</p>
-                <input type="email" name="email" id="email" required>
+                <p>Email <span hidden id="email_error">Eamil Error</span></p>
+                <input type="email" name="email" id="email" required onblur="checkEmail()">
             </div>
             <div>
-                <p>Password</p>
-                <input type="password" name="password" id="password" required>
+                <p>Password <span hidden id="password_error">password Error</span></p>
+                <input type="password" name="password" id="password" required onblur="checkPassword()">
             </div>
             <div>
-                <p>Repeat password</p>
-                <input type="repeat_password" name="repeat_password" id="repeat_password" required>
+                <p>Repeat password <span hidden id="repet_password_error">Password Error</span></p>
+                <input type="password" name="repeat_password" id="repeat_password" required onblur="checkRepeat()">
             </div>
-            <input type="submit">
+            <input type="submit" id="submit_reg">
         </form>
     </main>
     <script src="index.js"></script>
