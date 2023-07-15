@@ -66,6 +66,6 @@ function getCookieValue(cookieArray, cookieName) {
     return null;
   }
 
-if(getCookieValue(document.cookie.split("; "))!=null){
+if(getCookieValue(document.cookie.split("; "),'email')!=null){
     window.location.replace("userInfo.html");
 }

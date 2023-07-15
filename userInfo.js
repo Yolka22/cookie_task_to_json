@@ -8,6 +8,9 @@ function getCookieValue(cookieArray, cookieName) {
     return null;
   }
 
+  const deleteCookie = (name) => {
+    document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT';
+  }
 
 const restrictInput = (inputElement, RegEx) => {
   const regex = RegEx;
@@ -55,6 +58,11 @@ document.getElementById('hello').textContent+=` ${getCookieValue(document.cookie
 
 document.getElementById('exit').addEventListener('click',()=>{
     document.cookie = `email=; expires=-1; `
+
+    document.cookie.split('; ').forEach(Element=>{
+      deleteCookie(Element);
+    })
+
     window.location.replace("index.html");
 })
 
@@ -68,5 +76,8 @@ document.getElementById('save').addEventListener("click",(event)=>{
 })
 
 if(getCookieValue(document.cookie.split("; "), 'FirstName')!=null){
-  document.getElementById('FirstName').value = getCookieValue(document.cookie.split("; "), 'FirstName');
+  const inputs = document.querySelectorAll('input')
+  inputs.forEach(input=>{
+    input.value = getCookieValue(document.cookie.split('; '), input.name)
+  })
 }
