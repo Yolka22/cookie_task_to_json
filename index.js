@@ -53,9 +53,6 @@ SubmitReg.addEventListener('click',(event)=>{
         ){
             document.cookie=`email=${document.getElementById("email").value}; max-age=3600; path=/userInfo`;
             window.location.replace("userInfo.html");
-
-
-            
     }
 })
 
