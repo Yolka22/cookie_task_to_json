@@ -1,16 +1,5 @@
-function getCookieValue(cookieArray, cookieName) {
-    for (const cookie of cookieArray) {
-      const [name, value] = cookie.split("=");
-      if (name === cookieName) {
-        return value;
-      }
-    }
-    return null;
-  }
-
-  const deleteCookie = (name) => {
-    document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT';
-  }
+const UserInfoJsonString = localStorage.getItem('UserInfoJson');
+const UserInfoJson = JSON.parse(UserInfoJsonString);
 
 const restrictInput = (inputElement, RegEx) => {
   const regex = RegEx;
@@ -54,15 +43,10 @@ function validatePhone(input,errorcontainer) {
 
 
 
-document.getElementById('hello').textContent+=` ${getCookieValue(document.cookie.split("; "),'email')}`;
+document.getElementById('hello').textContent+=" "+UserInfoJson.email;
 
 document.getElementById('exit').addEventListener('click',()=>{
-    document.cookie = `email=; expires=-1; `
-
-    document.cookie.split('; ').forEach(Element=>{
-      deleteCookie(Element);
-    })
-
+    localStorage.setItem('UserInfoJson',"{}")
     window.location.replace("index.html");
 })
 
@@ -70,14 +54,19 @@ document.getElementById('save').addEventListener("click",(event)=>{
   event.preventDefault();
   const inputs = document.querySelectorAll('input')
   inputs.forEach(input=>{
-    document.cookie =`${input.name}=${input.value}; max-age=3600; `
+    UserInfoJson[`${input.name}`]=input.value;
   })
+  localStorage.setItem('UserInfoJson',JSON.stringify(UserInfoJson))
   location. reload()
 })
 
-if(getCookieValue(document.cookie.split("; "), 'FirstName')!=null){
+if(localStorage.getItem('UserInfoJson')!=null&&localStorage.getItem('UserInfoJson')!="{}"){
   const inputs = document.querySelectorAll('input')
   inputs.forEach(input=>{
-    input.value = getCookieValue(document.cookie.split('; '), input.name)
+    
+    if(UserInfoJson[`${input.name}`]!=undefined){
+      input.value = UserInfoJson[`${input.name}`];
+    }
+    
   })
 }
