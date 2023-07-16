@@ -20,7 +20,6 @@ const checkEmail = () =>{
 
 const checkPassword = () =>{
     const inputText = document.getElementById("password").value;
-  
     if (PasswordItearal.test(inputText)) {
         PasswordError.hidden = true;
         return true;
@@ -33,7 +32,6 @@ const checkPassword = () =>{
 const checkRepeat = () =>{
     const password = document.getElementById("password").value;
     const repeat_password = document.getElementById("repeat_password").value;
-  
     if(password==repeat_password){
         RepeatPasswordError.hidden=true;
         return true;
@@ -51,12 +49,8 @@ SubmitReg.addEventListener('click',(event)=>{
         PasswordError.hidden==true&&
         RepeatPasswordError.hidden==true
         ){
-
-
             const UserInfoJson = JSON;
-
             UserInfoJson.email = document.getElementById('email').value;
-
             localStorage.setItem('UserInfoJson',JSON.stringify(UserInfoJson));
             window.location.replace("userInfo.html");
     }

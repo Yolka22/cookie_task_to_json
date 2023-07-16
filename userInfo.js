@@ -12,7 +12,7 @@ const restrictInput = (inputElement, RegEx) => {
 }
 
 
-function validateYear(inputElement,errorcontainer) {
+const validateYear = (inputElement,errorcontainer) => {
   const Error = document.getElementById(errorcontainer);
   const inputValue = inputElement.value;
 
@@ -29,7 +29,7 @@ function validateYear(inputElement,errorcontainer) {
     }
   }
 }
-function validatePhone(input,errorcontainer) {
+const validatePhone = (input,errorcontainer) => {
   let string = input.value;
   const Error = document.getElementById(errorcontainer);
   const regex = /^[0-9()\s-]{10,12}$/;
@@ -39,10 +39,6 @@ function validatePhone(input,errorcontainer) {
     Error.hidden=false;
   }
 }
-
-
-
-
 document.getElementById('hello').textContent+=" "+UserInfoJson.email;
 
 document.getElementById('exit').addEventListener('click',()=>{
@@ -63,10 +59,8 @@ document.getElementById('save').addEventListener("click",(event)=>{
 if(localStorage.getItem('UserInfoJson')!=null&&localStorage.getItem('UserInfoJson')!="{}"){
   const inputs = document.querySelectorAll('input')
   inputs.forEach(input=>{
-    
     if(UserInfoJson[`${input.name}`]!=undefined){
       input.value = UserInfoJson[`${input.name}`];
     }
-    
   })
 }
